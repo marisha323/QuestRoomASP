@@ -1,0 +1,138 @@
+﻿@page
+@model QuestRoomASP.Pages.InfoModel
+@{
+}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url("https://questzone.com.ua/dist/pict_rooms/Iv2L35Tj.jpg");
+        padding: 50px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        background-size: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .contener {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        width: 85%;
+        background-image: url("https://www.bodo.ua/resize/upload/files/cm-experience/102/101728/images_file/all_all_big-t1604571205-r1w768h425q90zc1.jpg");
+        padding: 20px;
+        border-radius: 20px;
+        margin: auto;
+        background-size: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .contener2 {
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 20px;
+        row-gap: 20px;
+        background-size: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-image: url("https://img.freepik.com/premium-photo/horror-background_173387-1447.jpg");
+        padding: 20px;
+        color: lime;
+        font-weight: bold;
+        border-radius: 20px;
+    }
+
+    .contener3 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .contener4 {
+        width: 100%;
+        height: 200px;
+        border-radius: 20px;
+    }
+
+    .contener5 {
+        width: 200px;
+        height: auto;
+        word-break: break-word;
+    }
+
+    .style1 {
+        color: lime;
+    }
+
+    .styleButton {
+        justify-content: center;
+        width: 60px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="contener">
+
+    @foreach (var item in Model.rooms)
+    {
+        <div class="contener2">
+
+            
+            <div>
+              
+                <br />
+                <p>
+                    Номер телефону
+                    @foreach (var item2 in Model.phones.Where(o => o.RoomsId == item.Id))
+                    {
+                        <span>@item2.PhoneNumber</span>
+                    }
+                </p>
+                <br />
+
+                <p>
+                    Email
+                    @foreach (var item4 in Model.emails.Where(o => o.RoomsId == item.Id))
+                    {
+                        <span>@item4.NewEmail</span>
+                    }
+                </p>
+                <br />
+                <p>Назва компонії <span>@item.NameCompany</span></p>
+                <br />
+                <p>Рейтинг <span>@item.Rating</span></p>
+                <br />
+              
+                <p>Логотип<span><img style="width:150px;height:150px " src="@item.PathLog" /></span></p>
+                <br>
+                <p>
+                    Картинка
+                    @foreach (var item3 in Model.pictures.Where(o => o.RoomsId == item.Id))
+                    {
+                        <span><img style="width:150px;height:150px " src="@item3.PathImg" /></span>
+                    }
+                </p>
+                <label class="contener5">Додаткова інформація <br /><span>@item.Info</span></label>
+                <br />
+
+               
+
+            </div>
+
+
+
+        </div>
+    }
+
+
+
+</div>

@@ -1,0 +1,80 @@
+﻿@page
+@model QuestRoomASP.Pages.AddRoomModel
+@{
+}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url("https://f.kyivmaps.com/location/3212/2S42F.jpg");
+        padding: 50px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+    }
+
+    .contener {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        width: 85%;
+        background-image: url("https://www.bodo.ua/resize/upload/files/cm-experience/102/101728/images_file/all_all_big-t1604571205-r1w768h425q90zc1.jpg");
+        padding: 20px;
+        border-radius: 20px;
+        margin: auto;
+    }
+
+    .style1 {
+        color: lime;
+    }
+
+    .styleButton {
+        justify-content: center;
+        width: 60px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="contener">
+    <div class="style1">
+        <form method="post" enctype="multipart/form-data">
+
+            <label>Введіть назву кімнати <input asp-for="room.Name" type="text"></label>
+            <br>
+            <label>Додайте опис кімнати <textarea asp-for="room.Info"></textarea></label>
+            <br>
+            <label>Час проходження <input asp-for="room.PassageTime" type="text" /></label>
+            <br />
+            <label>Мінімамальна кількість гравців <input asp-for="room.MinMember" type="number" /></label>
+            <br />
+            <label>Максимальна кількість гравців <input asp-for="room.MaxMember" type="number" /></label>
+            <br />
+            <label>Мінімамальний вік гравців <input asp-for="room.MinAge" type="number" /></label>
+            <br />
+            <label>Адреса<br /> <input asp-for="room.Adress" type="text" /></label>
+            <br />
+            <label>Номер телефону <input asp-for="phone.PhoneNumber" type="text" /></label>
+            <br />
+            <label>Email<br /> <input asp-for="email.NewEmail" type="text" /></label>
+            <br />
+            <label>Назва компанії <input asp-for="room.NameCompany" type="text" /></label>
+            <br />
+            <label>Рейтинг<br /> <input asp-for="room.Rating" type="number" /></label>
+            <br />
+            <label>Рівень страху <input asp-for="room.FearLevel" type="number" /></label>
+            <br />
+            <label>Рівень складності<input asp-for="room.DifficultyLevel" type="number" /></label>
+            <br />
+            <label>Завантажте логотип кімнати <input asp-for="room.PathLog" type="file"></label>
+            <br />
+            <label>Завантажте картинку кімнати <input asp-for="picture.PathImg" type="file"></label>
+            <br />
+            <br>
+            <label>Зберегти запис <input class="styleButton" type="submit" value="Save"></label>
+        </form>
+       
+    </div>
+</div>
