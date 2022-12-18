@@ -53,8 +53,13 @@ namespace QuestRoomASP.Pages
                 picture.PathImg = picture.PathImg.Split("wwwroot")[1];
                 await context.AddAsync(picture);
 
-               
 
+                using (var fs = new FileStream(picture.PathImg, FileMode.Create))
+                {
+                    await files[i].CopyToAsync(fs);
+                }
+                picture.PathImg = picture.PathImg.Split("wwwroot")[1];
+                await context.AddAsync(picture);
             }
            
             phone.RoomsId = context.Rooms.Where(o => o.Name == room.Name).FirstOrDefault().Id;
